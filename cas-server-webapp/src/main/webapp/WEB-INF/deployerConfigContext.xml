@@ -41,6 +41,21 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		    <property name="driverClassName">
+		        <value>com.mysql.jdbc.Driver</value>
+		    </property>
+		    <property name="url">
+		        <value>jdbc:mysql://localhost:3306/privilege?useUnicode=true&amp;characterEncoding=utf8</value>
+		    </property>
+		    <property name="username"><value>root</value></property>
+		    <property name="password"><value>123456</value></property>
+		</bean>
+		<bean id="passwordEncoderBean" class="org.jasig.cas.authentication.handler.DefaultPasswordEncoder">
+		    <constructor-arg value="MD5" />
+		</bean>
+	
 	<!--
 		| This bean declares our AuthenticationManager.  The CentralAuthenticationService service bean
 		| declared in applicationContext.xml picks up this AuthenticationManager by reference to its id, 
@@ -131,8 +146,11 @@
 					| local authentication strategy.  You might accomplish this by coding a new such handler and declaring
 					| edu.someschool.its.cas.MySpecialHandler here, or you might use one of the handlers provided in the adaptors modules.
 					+-->
-				<bean 
-					class="org.jasig.cas.authentication.handler.support.SimpleTestUsernamePasswordAuthenticationHandler" />
+				<bean  class="org.jasig.cas.adaptors.jdbc.QueryDatabaseAuthenticationHandler">
+				   <property name="dataSource" ref="dataSource" />
+				   <property name="sql" value="select password from p_user where username=?" />
+				   <property name="passwordEncoder" ref="passwordEncoderBean"/>
+				</bean>
 			</list>
 		</property>
 	</bean>
