@@ -902,7 +902,7 @@ pTSqrOnmqmUUnopqmvummmmmmUUnopqmvummmmmmUUA1jJ
     <jpa.version>2.0-cr-1</jpa.version>
     <commons.codec.version>1.4</commons.codec.version>
     <log4j.version>1.2.15</log4j.version>
-    <junit.version>4.10</junit.version>
+    <junit.version>4.13.1</junit.version>
     <commons.lang.version>2.5</commons.lang.version>
     <inspektr.version>1.0.7.GA</inspektr.version>
     <commons.io.version>2.0</commons.io.version>
