@@ -894,7 +894,7 @@ pTSqrOnmqmUUnopqmvummmmmmUUnopqmvummmmmmUUA1jJ
     <javax.validation.version>1.0.0.GA</javax.validation.version>
     <perf4j.version>0.9.14</perf4j.version>
     <commons.jexl.version>1.1</commons.jexl.version>
-    <hibernate.validator.version>4.2.0.Final</hibernate.validator.version>
+    <hibernate.validator.version>4.3.2.Final</hibernate.validator.version>
     <hibernate.core.version>4.1.0.Final</hibernate.core.version>
     <slf4j.version>1.7.1</slf4j.version>
     <person.directory.version>1.5.1</person.directory.version>
